@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  border: 1px solid black;
+  margin: 5px;
+}
+</style>
+</head>
+<body>
+
+<div id="myDIV" name="mydiv">
+  <input type="text" name="myText" id="text">
+</div>
+<button onclick="myFunction()">Try it</button>
+<button onclick="Function()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var x = document.getElementsByTagName("div")[0].getAttribute("name");
+  document.getElementById("demo").innerHTML = x;
+}
+function Function{
+var x = document.getElementsByTagName("div")[0].getAttribute("input").name;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>

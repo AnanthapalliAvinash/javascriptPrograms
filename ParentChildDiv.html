@@ -1,0 +1,35 @@
+<html>
+<head>
+<body>
+<div id="parentDiv1">Iam Grand Parent
+<div id="paretDiv2">Iam child of parent1
+  <div id="child1">Iam child of parent2</div>
+  <div id="child2">Iam child of parent2
+  <div id="childschild">Iam childschild</div>
+  </div>
+  <div id="child">Iam child of parent2</div>
+  </div>
+</div>
+<p id="sample">
+<p id="sample1">
+<p id="sample2">
+<p id="sample3">
+<p id="sample4">
+<button onclick="Fun()">click me</button>
+<script>
+function Fun() {
+        var parent = document.getElementsByTagName('div')[0];
+        document.getElementById('sample').innerHTML=parent.innerHTML;
+		var parent1 = document.getElementsByTagName('div')[1];
+        document.getElementById('sample1').innerHTML=parent1.innerHTML;
+		var parent2 = document.getElementsByTagName('div')[2];
+        document.getElementById('sample2').innerHTML=parent2.innerHTML;
+		var parent3 = document.getElementsByTagName('div')[3];
+        document.getElementById('sample3').innerHTML=parent3.innerHTML;
+		<!-- var x = document.getElementById("child1").parentElement.nodeName; -->
+  <!-- document.getElementById("sample4").innerHTML = x.innerHTML; -->
+    }
+</script>
+</body>
+</head>
+</html>

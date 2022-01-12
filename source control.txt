@@ -1,0 +1,30 @@
+source control:
+Source control refers to tracking and managing changes to code.This ensures that developers are always working on the right version of source code.
+source control management:
+Source control management (SCM) refers to tools that help you keep track of your code with a complete history of changes.
+
+These two terms are also used interchangeably. However, source control is specific to tracking changes in source code. And a source code management tool (SCM) tracks changes to a source code repository.
+SCM also maintains a history of changes. This is used to resolve conflicts when merging updates from multiple developers.
+
+Source control is important for maintaining a single source of truth for development teams. Plus, using it helps facilitate collaboration and accelerates release velocity.
+
+That’s because it allows multiple developers to work on the same codebase. They can commit and merge code without conflicts. And they can even make edits to shared code, without unknowingly overwriting each other’s work.
+
+Git:
+Git is used to tracking changes in the source code
+The distributed version control tool is used for source code management
+It allows multiple developers to work together
+It supports non-linear development through its thousands of parallel branches
+
+String Formatting:
+In C#,  Format() is a string method. This method is used to replace one or more format items in the specified string with the string representation of a specified object.In other words, 
+this method is used to insert the value of the variable or an object or expression into another string.
+
+String.Format(String first, Object second) Method
+String.Format(String, params Object[]) Method
+String.Format(IFormatProvider, String, Object) Method 
+String.Format(IFormatProvider, String, Object, Object) Method  
+String.Format(IFormatProvider, String, Object, Object, Object) Method
+String.Format(IFormatProvider, String, Object[]) Method
+String.Format(String, Object, Object) Method
+String.Format(String, Object, Object, Object) Method

@@ -1,0 +1,161 @@
+<html>
+<head>
+<style>
+table{
+border:1px solid black;
+width:80%;
+margin:40px auto;
+}
+h1{
+background-color:blue;
+}
+input[type="text"],input[type="address"]{
+text-align:center;
+width:90%;
+border:8px 0;
+border-color:solid black;
+}
+</style>
+</head>
+<body>
+<center>
+<div>
+<table>
+<h1>Employee Details</h1>
+<tr>
+<td>
+<form autocomplete="off">
+<div>
+<label for="empid">EmployeeId:</label>
+<input type="text" id="empid" name="eid" ><br/><br/>
+</div>
+<div>
+<label for="empname">EmployeeName:</label>
+<input type="text" id="empname" name="ename"><br/><br/>
+</div>
+<div>
+<label for="phno">Mobile No:</label>
+<input type="text" id="phno" name="mobileno"><br/><br/>
+</div>
+<div>
+<label for="salary">Salary:</label><br/>
+<input type="text" id="salary" name="salary"><br/><br/>
+</div>
+<div>
+<label for="address">Address:</label>
+<input type="address" id="address"><br/><br/>
+</div>
+<div class="buttons">
+<input type="submit" onclick="onFormSubmit()"value="Save">
+<input type="reset" id="btnn" name="reset" value="Reset"><br/><br/>
+</div>
+<td>
+<table class="store" id="storedata">
+<thead>
+<tr>
+<th>EmployeeId</th>
+<th>EmployeeName</th>
+<th>Mobile No</th>
+<th>Salary</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+
+</tbody>
+</table>
+</td>
+</form>
+</td>
+</tr>
+</table>
+<br/>
+</center>
+<script>
+var selectedRow = null
+
+function onFormSubmit() {
+    if (validate()) {
+        var formData = readFormData();
+        if (selectedRow == null)
+            insertNewRecord(formData);
+        else
+            updateRecord(formData);
+        resetForm();
+    }
+}
+
+function insertNewRecord(data) {
+    var table = document.getElementById("storedata").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.empid;
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.empname;
+    cell3 = newRow.insertCell(2);
+	cell2.innerHTML = data.phno;
+    cell3 = newRow.insertCell(3);
+    cell3.innerHTML = data.salary;
+    cell4 = newRow.insertCell(4);
+    cell4.innerHTML = data.address;
+    cell5 = newRow.insertCell(5);
+    cell5.innerHTML = '<a onClick="onEdit(this)">Edit</a><a onClick="onDelete(this)">Delete</a>';
+}
+function resetForm() {
+    document.getElementById("empid").value = "";
+    document.getElementById("empname").value = "";
+	document.getElementById("phno").value = "";
+    document.getElementById("salary").value = "";
+    document.getElementById("address").value = "";
+    selectedRow = null;
+}
+
+function onEdit(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("empid").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("empname").value = selectedRow.cells[1].innerHTML;
+	document.getElementById("phno").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("salary").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("address").value = selectedRow.cells[3].innerHTML;
+}
+function updateRecord(formData) {
+    selectedRow.cells[0].innerHTML = formData.empid;
+    selectedRow.cells[1].innerHTML = formData.empname;
+	selectedRow.cells[1].innerHTML = formData.phno;
+    selectedRow.cells[2].innerHTML = formData.salary;
+    selectedRow.cells[3].innerHTML = formData.address;
+}
+
+function onDelete(td) {
+    if (confirm('Are you sure to delete this record ?')) {
+        row = td.parentElement.parentElement;
+        document.getElementById("storedata").deleteRow(row.rowIndex);
+        resetForm();
+    }
+}
+function validate() {
+    isValid = true;
+    if (document.getElementById("empid").value == "") {
+        isValid = false;
+        document.getElementById("empid").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("empid").classList.contains("hide"))
+            document.getElementById("empid").classList.add("hide");
+    }
+    return isValid;
+}
+
+function readFormData() {
+    var formData = {};
+    formData["empid"] = document.getElementById("empid").value;
+    formData["empname"] = document.getElementById("empname").value;
+	  formData["phno"] = document.getElementById("phno").value;
+    formData["salary"] = document.getElementById("salary").value;
+    formData["address"] = document.getElementById("address").value;
+    return formData;
+}
+
+</script>
+</body>
+</html>

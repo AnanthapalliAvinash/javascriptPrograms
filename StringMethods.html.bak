@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="myFunction()">Try it</button><br/>
+<button onclick="concat()">Click Me</button><br/>
+
+<script>
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.write(text.length);
+document.write("<br>");
+let str = "Apple, Banana, Kiwi";
+document.write(str.slice(7,13)); 
+document.write("<br>");
+document.write(str.substr(7,6)); 
+document.write("<br>");
+document.write(str.substr(-4)); 
+document.write("<br>");
+document.write(str.substring(0,5)); 
+document.write("<br>");
+document.write(str.replace('Kiwi','Orange')); 
+document.write("<br>");
+document.write(text.toUpperCase());
+document.write("<br>");
+document.write(text.toLOwerCase());
+document.write("<br>");
+function concat(){
+let text1 = "Hello";
+let text2 = "World!";
+let text3 = text1.concat(" ",text2);
+document.write(text3);
+document.write("<br>");
+document.write(text1.charAt(0));
+}
+document.write("<br>");
+function myFunction() {
+  let Text = "     Hello World!     ";
+  document.write(Text.trim());
+  document.write("<br>");
+  let t = "5";
+document.write(t.padStart(4,0));
+document.write("<br>");
+document.write(t.padEnd(4,0));
+}
+</script>
+
+</body>
+</html>
+

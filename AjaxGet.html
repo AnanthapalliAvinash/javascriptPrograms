@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+
+<p id="demo1"></p>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "https://api.publicapis.org/entries");
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data=document.getElementById("demo").innerHTML = JSON.parse(this.responseText);
+	  var result=data.entries;
+	  if(result.length>0){
+	  var result1 = "<table border='1'>";
+        result1 += "<tr><th>API</th><th>Auth</th><th>HTTPS</th>";
+        for (i = 0; i < result.length; i++) {
+            result1 += "<tr><td>" +result[i].API + "</td><td>" +result[i].Auth + " </td><td>" +result[i].HTTPS + " </td>";
+        }
+		
+        result1+="</table>";
+        var s=document.getElementById("demo1").innerHTML= result1;
+		document.write(s);
+    }
+	}
+  }
+  
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

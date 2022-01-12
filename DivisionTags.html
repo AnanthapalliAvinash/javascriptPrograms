@@ -1,0 +1,62 @@
+<html>
+<head>
+</head>
+<style>
+<!-- .mydiv{ -->
+  <!-- margin: 10px; -->
+  <!-- padding: 10px; -->
+  <!-- color:red; -->
+  <!-- background-color:yellow; -->
+  <!-- border: black solid 1px; -->
+  <!-- /*to show how it works*/ -->
+<!-- } -->
+</style>
+<body>
+        
+        <div>
+            someText
+        </div>
+        <div>
+            someText
+        </div>
+        <div>
+            special text
+        </div>
+		<div>
+            simple text
+        </div>
+		<div style="color:blue;text-align:center;">
+            bold text
+        </div>
+		<div>
+            someText
+        </div>
+        <div>
+            someText
+        </div>
+        <div>
+            special text
+        </div>
+		<div>
+            simple text
+        </div>
+		<div class="mydiv">
+            another text
+        </div>
+<script>
+divContent=[];
+divContent = document.getElementsByTagName("div");
+   for(var i = 0; i<divContent.length; i++){
+   if(i==4||i==9)
+   {
+       <!-- if(divContent.item(i).innerText == "bold text"){ -->
+       
+           <!-- console.log("found"); -->
+           divContent.item(i).style.backgroundColor = "red";
+		   }
+           
+       }
+   
+   </script>
+</body>
+</html>

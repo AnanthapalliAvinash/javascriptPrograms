@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+var forArr = [
+  {
+    "empid": "101",
+    "empname": "raju",
+  },
+  {
+    "empid": "102",
+    "empname": "mani",
+  },
+  {
+    "empid": "103",
+    "empname": "phani",
+  },
+];
+function recursive_function(array){
+  if(array.length > 0){
+    console.log(array[0]);
+    recursive_function(array.slice(1));
+  }
+}
+
+recursive_function(forArr);
+</script>
+</head>
+</html>

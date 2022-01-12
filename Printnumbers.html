@@ -1,0 +1,21 @@
+<html>
+<body>
+<script>
+var i,j;
+function print(i,j){
+if(i<=j){
+document.writeln(i);
+print(i+1,j);
+}
+}
+function printnum(){
+var n=100
+for(var i=1;i<=n;i++)
+document.writeln(i);
+}
+print(1,100);
+document.writeln("<br>");
+printnum();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<style>
+</style>
+<body>
+<div>First name: <br><input type="text" id="fname" name="sample"><br><br></div>
+<div>Middle name: <br><input type="text" id="mname"name="sample"><br><br></div>
+<div>Last name: <br><input type="text" id="lname"name="sample"><br><br></div>
+<div>Email: <br><input type="email" id="email"name="sample"><br><br></div>
+<div>Age: <br><input type="text" id="age"name="sample"><br><br></div>
+<div>DOB: <br><input type="date" id="dob"name="sample"><br><br></div>
+<div>salary: <br><input type="text" id="salary"name="sample"><br><br></div>
+<div>mobileno: <br><input type="text" id="phno"name="sample"><br><br></div>
+<div>Designation: <br><input type="text" id="designation"name="sample9"><br><br></div>
+<div>City: <br><input type="text" id="city" name="sample"><br><br></div>
+<button onclick="myFunction()">submit</button>
+<p id="sample"></p>
+<script>
+function myFunction() {
+var s;
+  s=document.getElementsByName("sample9").value;
+   document.getElementById("sample").innerHTML =s; 
+     //document.write(s);
+	 
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data=document.getElementById("demo").innerHTML = this.responseText;
+	 if(data>0){
+	 var render = "<table border='1'>";
+        render += "<tr><th>id</th><th>name</th><th>min_size</th>";
+        for (i = 0; i < data.length; i++) {
+            render += "<tr><td>" +data.id[i] + "</td><td>" +name[i] + " </td><td>" +min_size[i] + " </td>";
+        }
+        render+="</table>";
+        demo.innerHTML[i]= render;
+    }
+  }
+  xhttp.open("GET", "https://api.publicapis.org/entries", true);
+  xhttp.send();
+}
+}
+</script>
+
+</body>
+</html>

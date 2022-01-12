@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+for (int i = 5; i > -5; i--) {
+            for (int j = 0; j < i; j++) {
+                document.write(" ");
+            }
+            for (int j = 0; j >= i; j--) {
+                document.write(" ");
+            }
+            document.write("*");
+        }
+    }
+	</script>
+</body>
+</html>

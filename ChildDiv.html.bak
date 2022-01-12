@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get All The Child DIV IDs Inside a DIV Using jQuery</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--The parent and child elements.-->
+    <div id="Container">
+        Inside parent DIV
+        <label>this is label</label>
+        <div id="Div1">Child DIV 1
+		<div id="subdiv1">subchild1</div>
+		</div>
+        <div id="Div2">Child DIV 2</div>
+		<div id="Div3">Child DIV 3</div>
+    </div>
+        
+    <h3>Result</h3>
+    <div id="showChild"></div>  <!--Display the result.-->
+</body>
+
+<script>
+    $(document).ready(function() {
+			alert($('#Container > div ').html());
+        // Show the child DIVs using .map function.
+        $('#Container > div').map(function() {
+            $('#showChild').append(this.id + '<br />');
+        });
+    });
+</script>
+</html>

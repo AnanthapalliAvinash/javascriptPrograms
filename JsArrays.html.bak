@@ -1,0 +1,24 @@
+<html>
+<body>
+<script>  
+var emp=new Array("Jai","Vijay","Smith");  
+for (i=0;i<emp.length;i++){  
+document.write(emp[i] + "<br>");  
+} 
+var arr=["AngularJS","Node.js","JQuery","Bootstrap"]
+// place at 0th position, the element between 1st and 2nd position.
+var result=arr.copyWithin(0,1,2);
+document.writeln(result+"<br>"); 
+var arr1=emp.concat(arr);
+document.writeln(arr1+"<br>");
+var marks=[50,40,45,57,200];
+
+function check(value)
+{
+  return value>30;  //return false, as marks[4]=20
+}
+
+document.writeln(marks.every(check));
+</script>  
+</body>
+</html>

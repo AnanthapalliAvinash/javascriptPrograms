@@ -1,0 +1,113 @@
+<html>
+<head>
+<style>
+table{
+border:1px solid black;
+width:80%;
+margin:40px auto;
+}
+h1{
+background-color:blue;
+}
+input[type="text"],input[type="address"]{
+text-align:center;
+width:90%;
+border:8px 0;
+border-color:solid black;
+}
+</style>
+</head>
+<body>
+<center>
+<div>
+<table>
+<h1>Employee Details</h1>
+<tr>
+<td>
+<form autocomplete="off" submit="formsubmit()">
+<div>
+<label for="empid">EmployeeId:</label>
+<input type="text" id="empid" name="eid" pattern="[0-9]{3}"><br/><br/>
+</div>
+<div>
+<label for="empname">EmployeeName:</label>
+<input type="text" id="empname" name="ename" pattern="[A-Za-z]{10}"><br/><br/>
+</div>
+<div>
+<label for="phno">Mobile No:</label>
+<input type="text" id="phno" name="mobileno" pattern="[6-9]{1}[0-9]{9}"><br/><br/>
+</div>
+<div>
+<label for="salary">Salary:</label><br/>
+<input type="text" id="salary" name="salary" pattern="[0-9]"><br/><br/>
+</div>
+<div>
+<label for="address">Address:</label>
+<input type="address" id="address" pattern="[A-Za-z]"><br/><br/>
+</div>
+<div class="buttons">
+<input type="submit" id="btn" name="submit" value="Save" onclick="store()">
+<input type="reset" id="btnn" name="reset" value="Reset"><br/><br/>
+</div>
+<td>
+<table class="store" id="storedata">
+<thead>
+<tr>
+<th>EmployeeId</th>
+<th>EmployeeName</th>
+<th>Mobile No</th>
+<th>Salary</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+
+</tbody>
+</table>
+</td>
+</form>
+</td>
+</tr>
+</table>
+<br/>
+</center>
+<script="text/javascript">
+var selectedrow=null;
+function formsubmit(e){
+event.preventDefault();
+var formdata=Readformdata();
+if(selectedrow==null){
+newRecord(formdata);
+}
+else{
+
+}
+}
+function Readformdata(){
+var formdata={};
+formdata['empid']=document.getElementById('empid').value;
+formdata['empname']=document.getElementById('empid').value;
+formdata['phno']=document.getElementById('empid').value;
+formdata['salary']=document.getElementById('empid').value;
+formdata['address']=document.getElementById('empid').value;
+return formdata;
+}
+function newRecord(data){
+var table=document.getElementById("storedata").getElementByTagName('tbody')[0];
+var newrow=table.insertRow(table.length);
+var cell=newrow.insertCell(0);
+cell.innerHTML=data.empid;
+var cell1=newrow.insertCell(1);
+cell1.innerHTML=data.empname;
+var cell2=newrow.insertCell(2);
+cell2.innerHTML=data.phno;
+var cell3=newrow.insertCell(3);
+cell3.innerHTML=data.salary;
+var cell4=newrow.insertCell(4);
+cell4.innerHTML=data.address;
+var cell5=newrow.insertCell(5);
+cell5.innerHTML='<button>edit</button><button>delete</button>';
+}
+</script>
+</body>
+</html>

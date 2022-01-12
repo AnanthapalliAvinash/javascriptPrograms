@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+
+function dividedRegular(){
+    var result = 3/4;
+    document.write(result);
+	document.write("<br>");
+}
+ 
+dividedRegular();
+ 
+ 
+var dividedAnonymous = function () {
+    var result = 3 / 4;
+    document.write(result);
+	document.write("<br>");
+}
+ 
+dividedAnonymous();
+
+(function(){
+    var result = 3/4;
+    document.write(result);
+	document.write("<br>");
+}())
+</script>
+</head>
+</html>

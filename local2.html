@@ -1,0 +1,144 @@
+<html>
+<head>
+</head>
+<body>
+<table style="width:100%;" id="tbl">
+<tr>
+    <td>Person Id:<span style="color:red;">*</span></td>
+    <td>
+        <input id="txtpid" type="text"  class="c1"/></td>
+</tr>
+<tr>
+    <td>Person Name:</td>
+    <td>
+        <input id="txtpname" type="text" class="c1" /></td>
+</tr>
+<tr>
+    <td>Address:</td>
+    <td>
+        <textarea id="txtpaddr" class="c1"></textarea></td>
+</tr>
+<tr>
+    <td>City:</td>
+    <td>
+        <input id="txtpcity" type="text" class="c1"/></td>
+</tr>
+<tr>
+    <td>Email:</td>
+    <td>
+        <input id="txtpemil" type="email" class="c1" /></td>
+</tr>
+<tr>
+    <td>Age:</td>
+    <td>
+        <input id="txtpage" type="text" class="c1"/></td>
+</tr>
+<tr>
+    <td>Occupation:</td>
+    <td>
+        <input id="txtpoccup" type="text" class="c1"/></td>
+</tr>
+<tr>
+    <td>Mobile No:</td>
+    <td>
+        <input id="txtpmobile" type="tel" class="c1"/></td>
+</tr>
+<tr>
+    <td>Gender:</td>
+    <td>
+        <select id="lstpgender" class="c1">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td><input id="btnsave" type="button" value="Save" onClick = "saveitem()"/></td>
+    <td><input id="btnclear" type="button" value="Clear" onClick="clearuielements()" /></td>
+    <td><input id="btnclearstorage" type="button" value="Clear Storage" onClick ="clearstorage()"/></td>
+</tr>
+</table>
+<div id="errorMessage" style ="color:red;"></div>
+<div id="dvcontainer">
+</div>
+<script>
+function clearuielements() {
+    var inputs = document.getElementsByClassName("c1");
+    for (i = 0; i < inputs.length; i++) {
+        inputs[i].value = "";
+    }
+}
+
+//Save Entry in the Localstorage by eading values entered in the
+function saveitem() {
+debugger;
+var existingData = [];
+var inputs = document.getElementsByClassName("c1");
+if(inputs[0].value == ""){
+ document.getElementById("errorMessage").innerHTML="Please provide employee data";
+}
+else{
+var request = {
+ Id: inputs[0].value,
+ Name: inputs[1].value,
+ Address: inputs[2].value,
+ City: inputs[3].value,
+ Email: inputs[4].value,
+ Age: inputs[5].value,
+ Occupation: inputs[6].value,
+ MobileNo: inputs[7].value,
+ Gender: inputs[8].value
+};
+
+var jsonData = JSON.parse(localStorage.getItem("dataKey"));
+if(jsonData != null){
+existingData  = jsonData;
+}
+existingData.push(request);
+localStorage.setItem("dataKey", JSON.stringify(existingData));   
+}
+//Reload the Page
+loaddata();
+}
+
+//Method to Read Data from the local Storage
+function loaddata() {
+debugger;
+    var data = JSON.parse(localStorage.getItem("dataKey"));
+    if (data != null && data.length > 0)
+    {
+        var render = "<table border='1'>";
+        render += "<tr><th>Id</th><th>Name</th><th>Address</th><th>City</th><th>Email</th><th>Age</th><th>Occupation</th><th>MobileNo</th><th>Gender</th></tr>";
+        for (i = 0; i < data.length; i++) {
+            render += "<tr><td>" + data[i].Id + "</td><td>" + data[i].Name + " </td>";
+            render += "<td>" + data[i].Address + "</td>";
+            render += "<td>" + data[i].City + "</td>";
+            render += "<td>" + data[i].Email + "</td>";
+            render += "<td>" + data[i].Age + "</td>";
+            render += "<td>" + data[i].Occupation + "</td>";
+            render += "<td>" + data[i].MobileNo + "</td>";
+            render += "<td>" + data[i].Gender + "</td></tr>";
+        }
+        render+="</table>";
+        dvcontainer.innerHTML = render;
+    }
+}
+
+//Method to Clear Storage
+function clearstorage() {
+    var storagecount = localStorage.length; //Get the Storage Count
+    if (storagecount > 0)
+    {
+        for (i = 0; i < storagecount; i++) {
+            localStorage.clear();
+        }
+    }
+    window.location.reload();
+}
+</script>
+</body>
+</html>

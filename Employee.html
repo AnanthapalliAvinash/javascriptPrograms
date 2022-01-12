@@ -1,0 +1,136 @@
+<html>
+<head>
+<style>
+table{
+border:1px solid black;
+}
+h1{
+background-color:blue;
+}
+input{
+text-align:center;
+color:blue;
+border:solid 1px dodgerblue;
+}
+</style>
+</head>
+<body>
+<center>
+<div>
+<table>
+<form>
+<h1>Employee Details</h1>
+<tr>
+<td>
+<label for="empid">EmployeeId:</label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="empid" name="eid" pattern="[0-9]{3}"><br/><br/>
+</td>
+</tr>
+<tr>
+<td
+<label for="empname">EmployeeName:</label>
+<input type="text" id="empname" name="ename" pattern="[A-Za-z]{10}"><br/><br/>
+</td>
+</tr>
+<tr>
+<td>
+<label for="phno">Mobile No:</label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="phno" name="mobileno" pattern="[6-9]{1}[0-9]{9}"><br/><br/>
+</td>
+</tr>
+<tr>
+<td>
+<label for="salary">Salary:</label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="salary" name="salary" pattern="[0-9]"><br/><br/>
+</td>
+</tr>
+<tr>
+<td>
+<label for="address">Address:</label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="address" id="address" pattern="[A-Za-z]"><br/><br/>
+</td>
+</tr>
+</form>
+</table>
+<br/>
+<input type="submit" id="btn" name="submit" value="Save" onclick="store()"><br/><br/>
+<input type="submit" id="btn1" name="delete" value="Delete" onclick="Remove()"><br/><br/>
+<input type="submit" id="btn2" name="display" value="View" onclick="View()"><br/><br/>
+<input type="submit" id="btn4" name="edit" value="Edit" onclick="Edit()"><br/><br/>
+<input type="submit" id="btn3" name="update" value="Update" onclick="Update()"><br/><br/>
+</div>
+</center>
+
+</body>
+<script ="text/javascript">
+function store(){
+var eidinp=document.getElementById("empid");
+var enameinp=document.getElementById("empname");
+var phnoinp=document.getElementById("phno");
+var salaryinp=document.getElementById("salary");
+var addressinp=document.getElementById("address");
+var btninp=document.getElementById("btn");
+var removeinp=document.getElementById("btn1");
+var viewinp=document.getElementById("btn2");
+var updateinp=document.getElementById("btn3");
+var editinp=document.getElementById("btn4");
+var outputinp=document.getElementById("output");
+    if(eidinp.value.length == 0){
+        alert('Please fill employee id');
+
+    }else if(enameinp.value.length == 0){
+        alert('Please fill in employee name');
+
+    }else if(phnoinp.value.length == 0){
+        alert('Please fill mobile number');
+
+    }else if(salary.value.length == 0){
+        alert('please fill salary');
+
+    }else if(addressinp.value.length==0){
+        alert('please fill address details');
+
+    }else{
+	var data=[];
+        data['eid']=localStorage.setItem('eid',eidinp.value);
+        data['ename']=localStorage.setItem('ename', enameinp.value); 
+		data['pno']=localStorage.setItem('pno', phnoinp.value); 
+		data['sal']=localStorage.setItem('sal', salaryinp.value); 
+		data['addr']=localStorage.setItem('addr', addressinp.value);
+        alert('Your account has been created');		
+	}
+}
+function Remove(){
+if(localStorage.getItem('eid')==null){
+console.log("No Data Found");
+}
+else{
+window.localStorage.removeItem('eid');
+window.localStorage.removeItem('ename');
+window.localStorage.removeItem('pno');
+window.localStorage.removeItem('sal');
+window.localStorage.removeItem('addr');
+//window.localStorage.clear();
+console.log('Removed successfully');
+}
+}
+function View(){
+if(localStorage.getItem('eid')==null){
+console.log('No Data Found');
+}
+else{
+var keys=Object.keys(localStorage);
+console.log(keys);
+for(var key of keys){
+console.log("key:"+key+":value:"+localStorage.getItem(key));
+}
+}
+}
+function Update(){
+
+}
+function Edit(){
+
+}
+</script>
+</html>

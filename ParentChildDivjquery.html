@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="parentDiv1">Iam Grand Parent
+<div id="paretDiv2">Iam child of parent1
+  <div id="child1">Iam child of parent2</div>
+  <div id="child2">Iam child of parent2
+  <div id="childschild">Iam childschild</div>
+  </div>
+  <div id="child">Iam child of parent2</div>
+  </div>
+</div>
+<p id="sample">
+<p id="sample1">
+<p id="sample2">
+<p id="sample3">
+<p id="sample4">
+<button>click me</button>
+
+</body>
+<script>
+function Fun() {
+       $(document).ready(function(){
+  $("button").click(function(){
+  $(this).children('div').text();;
+  });
+  });
+}
+</script>
+
+</html>

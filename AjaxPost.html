@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "https://reqbin.com/echo/post/json");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	console.log(xhttp.status);
+      document.getElementById("demo").innerHTML =console.log(this.responseText);
+	  
+    }
+  }
+  
+  const data={"Id": 78912,
+  "Customer": "Jason Sweet",
+  "Quantity": 1,
+  "Price": 18.00
+  };
+ 
+  xhttp.send(data);
+  
+}
+</script>
+
+</body>
+</html>
